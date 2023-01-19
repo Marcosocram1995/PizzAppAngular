@@ -1,0 +1,37 @@
+<p-carousel [orientation]="direction" [value]="app.pizzas" [numVisible]="2" [numScroll]="2" [circular]="true">
+    <ng-template let-pizza pTemplate="item">
+        <div style="height: 75%;">
+            <div>
+                <img src={{pizza.image}} [alt]="pizza.name"
+                    style="margin-left: 4px; width: 70%; height: 70%; margin-top: 2pc; border-radius: 10%; box-shadow: 0 10px 4px 0 rgba(0, 0, 0, .2); border-style: outset;" />
+            </div>
+            <div style="margin-left: 15px;">
+                <div style="font-family: cursive; margin-top: 20px;">
+                    <h4 style="font-variant: small-caps; font-weight: 600;">{{pizza.name}}</h4>
+                    <h6 style="font-size: large;">Ingredients:
+                        <p-chip *ngFor="let item of pizza.ingredients;" label={{item}}
+                            styleClass="mr-2 custom-chip"></p-chip>
+                    </h6>
+                    <div style="margin-top: -0.75pc;">
+                        <h6 style="font-size: large;">Dough:
+                            <p-chip label={{pizza.dough}} styleClass="mr-2 custom-chip"></p-chip>
+                        </h6>
+                    </div>
+                    <h6 style="font-size: medium;">{{pizza.price}}</h6>
+                    <div style="margin-top: 1.5pc; display: flex; justify-content: left;">
+                        <div>
+                            <p-button type="button" styleClass="p-button p-button-rounded mr-2"> <img
+                                    src="https://cdn.icon-icons.com/icons2/494/PNG/512/cart_icon-icons.com_48341.png"
+                                    alt="carrito" width="40px" height="40px"></p-button>
+                        </div>
+                        <div style="margin-left: 1pc;">
+                            <p-button type="button" styleClass="p-button p-button-rounded mr-2"> <img
+                                    src="https://img.icons8.com/fluency-systems-regular/512/information.png" alt="info"
+                                    width="40px" height="40px"></p-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

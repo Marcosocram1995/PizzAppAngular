@@ -1,0 +1,17 @@
+<body style="min-width: 700px;">
+  <nav>
+    <app-nav></app-nav>
+  </nav>
+  <div>
+    <div>
+      <app-pizza-list *ngIf="pizzas != undefined"></app-pizza-list>
+    </div>
+    <div>
+      <app-loading-list *ngIf="pizzas == undefined"></app-loading-list>
+    </div>
+  </div>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</body>
+<router-outlet></router-outlet>

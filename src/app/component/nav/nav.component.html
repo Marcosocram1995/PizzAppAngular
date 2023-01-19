@@ -1,0 +1,44 @@
+<nav class="nav">
+  <div>
+    <p-button styleClass="p-button-rounded">
+      <img src="https://cdn.icon-icons.com/icons2/3490/PNG/512/kitchen_food_cooking_restaurant_icon_220386.png"
+        alt="menu" style="width: 40px; height: 40px;">
+    </p-button>
+  </div>
+  <div>
+    <p-button styleClass=" p-button-rounded" label="Make your own pizza!"></p-button>
+  </div>
+  <div style="display: inline-flex; justify-content: center; margin-left: -8%;">
+    <a href="http://localhost:4200/"
+      style="color: #ffee00; font-size: 250%; font-family: Impact; text-decoration: none; margin-left: 22px;">{{app.title}}</a>
+    <img src="https://imagensemoldes.com.br/wp-content/uploads/2020/04/Imagem-de-Pizza-PNG-1011x1024.png" height="15px"
+      alt="Icono de pizza" style="margin-left: 2px; margin-top: -23px;">
+  </div>
+  <div *ngIf="userRegistered == false">
+    <p-button styleClass="p-button-rounded" label="Join us!" (onClick)="op.toggle($event)"></p-button>
+  </div>
+  <div *ngIf="userRegistered == true">
+    <div class="p-inputgroup">
+      <label style="border-radius: 5%; width: 5px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
+        type="text" pInputText>Welcome {{username}}!</label>
+      <button style="width: 40px;" (click)="userRegistered = false; username = ''" type="button" pButton pRipple
+        icon="pi pi-times" styleClass="p-button-danger"></button>
+    </div>
+  </div>
+  <div>
+    <p-button badge={{badge}} badgeClass="p-badge-danger" styleClass="p-button-rounded">
+      <img src="https://cdn.icon-icons.com/icons2/494/PNG/512/cart_icon-icons.com_48341.png" alt="carrito" width="40px"
+        height="40px"></p-button>
+  </div>
+
+  <p-overlayPanel #op>
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" pInputText placeholder="Username" [(ngModel)]="username">
+        <button type="button" pButton pRipple icon="pi pi-sign-in" (click)="createClient(); op.hide()"></button>
+      </div>
+    </div>
+  </p-overlayPanel>
+
+</nav>
